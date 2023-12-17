@@ -1,7 +1,7 @@
 import { type FC } from "react";
 
-const LandingPage: FC = () => {
+const SearchPage: FC = () => {
   return <div></div>;
 };
 
-export default LandingPage;
+export default SearchPage;
