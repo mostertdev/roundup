@@ -1,8 +1,16 @@
 import { type FC } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
 
 const WelcomePage: FC = () => {
+  const { status } = useSession();
+  const router = useRouter();
+
+  if (status === "authenticated") {
+    void router.push("/");
+  }
+
   return (
     <div className="flex items-center justify-between">
       <div className="py-14 pl-14">
