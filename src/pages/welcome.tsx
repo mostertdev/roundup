@@ -4,8 +4,8 @@ import { signIn } from "next-auth/react";
 
 const WelcomePage: FC = () => {
   return (
-    <div className="flex items-start justify-between">
-      <div className="w-1/2 p-14 pl-24">
+    <div className="flex items-center justify-between">
+      <div className="py-14 pl-14">
         <Image
           src="/assets/logo.png"
           alt="roundUP Logo"
@@ -14,8 +14,8 @@ const WelcomePage: FC = () => {
           className="h-auto w-[270px]"
         />
 
-        <div className="mt-24 pl-5">
-          <h1 className="mb-10 text-4xl font-semibold text-slate-800">
+        <div className="mt-24">
+          <h1 className="mb-10 text-3xl font-semibold text-slate-800">
             Search & Collect
           </h1>
           <p className="mb-10 w-full max-w-md text-2xl text-slate-800">
@@ -39,12 +39,12 @@ const WelcomePage: FC = () => {
         </div>
       </div>
 
-      <div className="flex h-screen w-1/2 items-center justify-end py-10">
+      <div className="flex h-screen items-center justify-center">
         <Image
           src="/assets/welcome.png"
           alt="Welcome Background"
-          width={270}
-          height={50}
+          width={1200}
+          height={750}
           className="h-full w-auto"
         />
       </div>
