@@ -2,12 +2,15 @@ import { type FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MdOutlineSearch } from "react-icons/md";
+import { useSession } from "next-auth/react";
 
 interface HeaderProps {
   withSearch?: boolean;
 }
 
 const Header: FC<HeaderProps> = ({ withSearch }) => {
+  const { data } = useSession();
+
   return (
     <div className="flex w-full items-center justify-between px-20 py-8">
       <Image
@@ -45,7 +48,7 @@ const Header: FC<HeaderProps> = ({ withSearch }) => {
         </div>
 
         <Image
-          src="/assets/preview.png"
+          src={data?.user?.image ?? "/assets/icon.png"}
           width={50}
           height={50}
           alt="Profile"

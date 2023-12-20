@@ -18,7 +18,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["img.dummyapi.io"],
+    domains: ["img.dummyapi.io", "cdn.discordapp.com"],
   },
 };
 
