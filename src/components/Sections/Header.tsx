@@ -6,9 +6,11 @@ import { useSession } from "next-auth/react";
 
 interface HeaderProps {
   withSearch?: boolean;
+  search?: string;
+  setSearch?: (search: string) => void;
 }
 
-const Header: FC<HeaderProps> = ({ withSearch }) => {
+const Header: FC<HeaderProps> = ({ withSearch, search, setSearch }) => {
   const { data } = useSession();
 
   return (
@@ -29,9 +31,16 @@ const Header: FC<HeaderProps> = ({ withSearch }) => {
             type="text"
             className="h-10 w-96 rounded-full py-1 pl-2 text-slate-800 focus:outline-none"
             placeholder="Search for Hashtags or Mentions"
+            value={search}
+            onChange={(e) => setSearch && setSearch(e.target.value)}
           />
 
-          <button className="text-2xl font-semibold text-slate-200 hover:text-slate-800">
+          <button
+            className="text-2xl font-semibold text-slate-200 hover:text-slate-800"
+            onClick={() => {
+              setSearch && setSearch("");
+            }}
+          >
             X
           </button>
         </div>

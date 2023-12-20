@@ -1,5 +1,9 @@
 import { createTRPCRouter } from "~/server/api/trpc";
 
-export const appRouter = createTRPCRouter({});
+import { searchRouter } from "./routers/search";
+
+export const appRouter = createTRPCRouter({
+  search: searchRouter,
+});
 
 export type AppRouter = typeof appRouter;

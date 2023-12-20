@@ -1,24 +1,32 @@
-export interface IData {
-  data: IPost[];
-  total: number;
-  page: number;
-  limit: number;
+export interface IDummyData {
+  data: IDummyPost[];
 }
 
-export interface IPost {
+export interface IDummyPost {
   id: string;
   image: string;
   likes: number;
   tags: string[];
   text: string;
   publishDate: string;
-  owner: IUser;
+  owner: IDummyUser;
 }
 
-export interface IUser {
+export interface IDummyUser {
   id: string;
   title: string;
   firstName: string;
   lastName: string;
   picture: string;
+}
+
+export interface IPost {
+  id: string;
+  platform: string;
+  image: string;
+  likes: number;
+  tags: string[];
+  text: string;
+  published: string;
+  publisher: string;
 }

@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { useState, type FC } from "react";
 import Link from "next/link";
 
 import Authentication from "~/components/Authentication/Autentication";
@@ -8,8 +8,13 @@ import Header from "~/components/Sections/Header";
 import { MdOutlineSearch } from "react-icons/md";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const LandingPage: FC = () => {
+  const router = useRouter();
+
+  const [search, setSearch] = useState("");
+
   return (
     <Authentication>
       <div className="flex h-screen w-screen flex-col items-stretch justify-stretch">
@@ -24,9 +29,27 @@ const LandingPage: FC = () => {
               type="text"
               className="h-10 w-96 rounded-full py-1 pl-2 text-slate-800 focus:outline-none"
               placeholder="Search for Hashtags or Mentions"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDownCapture={(e) => {
+                if (e.key === "Enter") {
+                  void router.push(
+                    `/search/${search.replace("#", "").replace("@", "")}`,
+                  );
+                }
+              }}
             />
 
-            <button className="h-10 w-32 rounded-full bg-slate-800 font-semibold text-white hover:bg-slate-900 focus:outline-none">
+            <button
+              className="h-10 w-32 rounded-full bg-slate-800 font-semibold text-white hover:bg-slate-900 focus:outline-none"
+              onClick={() => {
+                if (search.length > 0) {
+                  void router.push(
+                    `/search/${search.replace("#", "").replace("@", "")}`,
+                  );
+                }
+              }}
+            >
               SEARCH
             </button>
           </div>
