@@ -41,7 +41,7 @@ const SearchPage: FC = () => {
 
           {!isLoading && (
             <span className="text-sm font-light text-slate-800">
-              {posts?.length ?? 0} posts found for #{search}
+              {posts?.length ?? 0} posts found for "{search}"
             </span>
           )}
         </div>

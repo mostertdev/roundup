@@ -15,6 +15,7 @@ import {
   LinkedinIcon,
   LinkedinShareButton,
 } from "react-share";
+import { api } from "~/_utils/api";
 
 interface PostShareModalProps {
   handleClose: () => void;
@@ -24,9 +25,14 @@ interface PostShareModalProps {
 const PostShareModal: FC<PostShareModalProps> = ({ handleClose, post }) => {
   const [shareURL, setShareURL] = useState("");
 
+  const { mutate: createPost } = api.posts.create.useMutation({
+    onSuccess: (post) => {
+      setShareURL(`https://roundup-demo.vercel.app/addons/post/${post.id}`);
+    },
+  });
+
   useEffect(() => {
-    // create post and generate share url
-    setShareURL(window.location.href);
+    createPost({ ...post });
   }, []);
 
   return (
@@ -36,32 +42,35 @@ const PostShareModal: FC<PostShareModalProps> = ({ handleClose, post }) => {
           <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
             <h4 className="text-xl font-medium text-slate-800">Share a Post</h4>
 
-            <div className="mt-5 flex items-center justify-between">
-              <div className=" flex items-center justify-start space-x-3">
-                <FacebookShareButton url={shareURL}>
-                  <FacebookIcon size={40} round />
-                </FacebookShareButton>
+            <p className="mt-5">{!shareURL && "Loading..."}</p>
+            <div className="mt-8 flex items-center justify-between">
+              {shareURL && (
+                <div className=" flex items-center justify-start space-x-3">
+                  <FacebookShareButton url={shareURL}>
+                    <FacebookIcon size={40} round />
+                  </FacebookShareButton>
 
-                <TwitterShareButton url={shareURL}>
-                  <TwitterIcon size={40} round />
-                </TwitterShareButton>
+                  <TwitterShareButton url={shareURL}>
+                    <TwitterIcon size={40} round />
+                  </TwitterShareButton>
 
-                <WhatsappShareButton url={shareURL}>
-                  <WhatsappIcon size={40} round />
-                </WhatsappShareButton>
+                  <WhatsappShareButton url={shareURL}>
+                    <WhatsappIcon size={40} round />
+                  </WhatsappShareButton>
 
-                <RedditShareButton url={shareURL}>
-                  <RedditIcon size={40} round />
-                </RedditShareButton>
+                  <RedditShareButton url={shareURL}>
+                    <RedditIcon size={40} round />
+                  </RedditShareButton>
 
-                <TelegramShareButton url={shareURL}>
-                  <TelegramIcon size={40} round />
-                </TelegramShareButton>
+                  <TelegramShareButton url={shareURL}>
+                    <TelegramIcon size={40} round />
+                  </TelegramShareButton>
 
-                <LinkedinShareButton url={shareURL}>
-                  <LinkedinIcon size={40} round />
-                </LinkedinShareButton>
-              </div>
+                  <LinkedinShareButton url={shareURL}>
+                    <LinkedinIcon size={40} round />
+                  </LinkedinShareButton>
+                </div>
+              )}
 
               <button
                 className="rounded-full bg-slate-800 px-9 py-3 font-semibold text-white hover:bg-slate-900 focus:outline-none"

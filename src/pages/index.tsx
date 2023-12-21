@@ -63,10 +63,14 @@ const LandingPage: FC = () => {
 
         <div className="flex items-center justify-between px-12 pb-4">
           <div className="flex items-center justify-center space-x-5">
-            <Link href="/" className="font-medium hover:underline">
+            <Link href="/api-guide" className="font-medium hover:underline">
               API Guide
             </Link>
-            <Link href="/collections" className="font-medium hover:underline">
+            <Link
+              href="https://github.com/mostertdev/roundup"
+              target="_blank"
+              className="font-medium hover:underline"
+            >
               GitHub Repository
             </Link>
           </div>

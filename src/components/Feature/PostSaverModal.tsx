@@ -33,6 +33,10 @@ const PostSaverModal: FC<PostSaverModalProps> = ({ handleClose, post }) => {
         <div className="w-full space-y-2">
           {isLoading && <div>Loading Collections...</div>}
 
+          {!isLoading && collections?.length === 0 && (
+            <div className="text-center">No collections found.</div>
+          )}
+
           {collections?.map((collection) => {
             return (
               <div
