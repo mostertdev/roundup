@@ -10,7 +10,7 @@ export default function Document() {
         <HeadMetaTags />
         <HeadLinkTags />
       </Head>
-      <body className="font-montserrat">
+      <body className="bg-slate-100 font-montserrat">
         <Main />
         <NextScript />
       </body>

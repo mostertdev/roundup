@@ -9,12 +9,12 @@ const PrivacyPolicyPage: NextPage = () => {
     <div>
       <PageMetaTags title="Privacy Policy" />
 
-      <header className="bg-gradient-to-r from-[#8761EE] to-[#9F93F2] p-10">
+      <header className="bg-slate-800 p-10">
         <div className="flex flex-col items-center justify-start space-y-5 lg:flex-row lg:space-x-5 lg:space-y-0">
           <Link href="/">
             <Image
-              src="/assets/brand/w3s-sign.svg"
-              alt="Web3 Sanctuary Sign"
+              src="/assets/icon.png"
+              alt="roundUP Logo"
               width={50}
               height={108}
             />
@@ -25,7 +25,7 @@ const PrivacyPolicyPage: NextPage = () => {
               Privacy Policy
             </h1>
             <p className="text-center font-light text-[#FFFFFF] lg:text-left">
-              Last Updated: Oct 25 2023
+              Last Updated: Dec 20 2023
             </p>
           </div>
         </div>
@@ -149,7 +149,7 @@ const PrivacyPolicyPage: NextPage = () => {
           contact us at{" "}
           <a
             href="mailto:mostertdev@gmail.com"
-            className="text-lg font-light text-[#8761EE] hover:underline"
+            className="text-lg font-light text-slate-800 hover:underline"
           >
             mostertdev@gmail.com
           </a>
