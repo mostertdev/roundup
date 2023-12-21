@@ -25,8 +25,14 @@ export interface IPost {
   platform: string;
   image: string;
   likes: number;
-  tags: string[];
+  tags: string;
   text: string;
   published: string;
   publisher: string;
+}
+
+export interface ICollection {
+  id: string;
+  name: string;
+  posts: IPost[];
 }

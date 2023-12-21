@@ -1,12 +1,12 @@
-import { useState, type FC, useEffect } from "react";
+import { useState, type FC } from "react";
 import Image from "next/image";
 
 import PageMetaTags from "~/components/MetaData/PageMetaTags";
 import Header from "~/components/Sections/Header";
 
-import { FaFilter, FaInstagram, FaShare, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaShare } from "react-icons/fa6";
 import { IoAddCircleSharp } from "react-icons/io5";
-import type { IData, IPost } from "~/types";
+import type { IPost } from "~/types";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -15,21 +15,6 @@ dayjs.extend(relativeTime);
 
 const CollectionPage: FC = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
-  const [postCount, setPostCount] = useState(0);
-
-  useEffect(() => {
-    void fetch("https://dummyapi.io/data/v1/tag/nature/post", {
-      method: "GET",
-      headers: {
-        "app-id": "658068b4a8688e0bfbd32b48",
-      },
-    })
-      .then((res) => res.json())
-      .then((data: IData) => {
-        setPosts(data.data);
-        setPostCount(data.total);
-      });
-  }, []);
 
   return (
     <Authentication>
@@ -67,10 +52,7 @@ const CollectionPage: FC = () => {
                   )}
 
                   <div className="flex items-center justify-between p-4">
-                    <span>
-                      @{post.owner.firstName}
-                      {post.owner.lastName}
-                    </span>
+                    <span>@{post.publisher}</span>
                     <FaInstagram className="h-5 w-5 text-slate-800" />
                   </div>
 
@@ -84,7 +66,7 @@ const CollectionPage: FC = () => {
 
                 <div className="flex items-center justify-between border-t border-slate-100 px-4 py-2">
                   <span className="text-xs text-slate-500">
-                    {dayjs(post?.publishDate).fromNow()}
+                    {dayjs(post?.published).fromNow()}
                   </span>
 
                   <div className="flex items-center justify-between space-x-4">

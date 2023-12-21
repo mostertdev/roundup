@@ -29,7 +29,9 @@ export const searchRouter = createTRPCRouter({
               platform: randomPlatform,
               image: post.image,
               likes: post.likes,
-              tags: post.tags.map((tag) => "#" + tag.replace(/ /g, "")),
+              tags: post.tags
+                .map((tag) => "#" + tag.replace(/ /g, ""))
+                .join(" "),
               text: post.text,
               publisher: "@" + post.owner.firstName + post.owner.lastName,
               published: post.publishDate,

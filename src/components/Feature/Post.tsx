@@ -45,7 +45,7 @@ const Post: FC<PostProps> = ({ post }) => {
 
         <p className="px-4 pb-3 text-sm text-slate-500">{post.text}</p>
         <p className="px-4 pb-6 text-xs font-medium text-slate-400">
-          {post.tags.join(" ")}
+          {post.tags}
         </p>
       </div>
 

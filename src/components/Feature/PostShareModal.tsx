@@ -32,12 +32,7 @@ const PostShareModal: FC<PostShareModalProps> = ({ handleClose, post }) => {
   return (
     <div className="fixed left-0 top-0 z-40 h-screen w-screen bg-slate-800 bg-opacity-70">
       <div className="flex h-full w-full items-center justify-center text-center">
-        <div
-          className="inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-headline"
-        >
+        <div className="inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle">
           <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
             <h4 className="text-xl font-medium text-slate-800">Share a Post</h4>
 
