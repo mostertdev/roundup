@@ -13,7 +13,7 @@ const WelcomePage: FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-between">
+    <div className="flex flex-col items-center justify-between xl:flex-row">
       <PageMetaTags title="roundUP" />
 
       <div className="px-8 py-14 xl:pl-14">
