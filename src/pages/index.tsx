@@ -61,11 +61,8 @@ const LandingPage: FC = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between px-12 pb-4">
+        <div className="flex items-center justify-center space-x-1 px-12 pb-4">
           <div className="flex items-center justify-center space-x-5">
-            <Link href="/api-guide" className="font-medium hover:underline">
-              API Guide
-            </Link>
             <Link
               href="https://github.com/mostertdev/roundup"
               target="_blank"
@@ -75,7 +72,7 @@ const LandingPage: FC = () => {
             </Link>
           </div>
 
-          <span>by Dominic Mostert</span>
+          <span> - a project by Dominic Mostert</span>
         </div>
       </div>
     </Authentication>

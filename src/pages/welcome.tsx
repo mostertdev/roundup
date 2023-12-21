@@ -2,6 +2,7 @@ import { type FC } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import PageMetaTags from "~/components/MetaData/PageMetaTags";
 
 const WelcomePage: FC = () => {
   const { status } = useSession();
@@ -13,6 +14,8 @@ const WelcomePage: FC = () => {
 
   return (
     <div className="flex items-center justify-between">
+      <PageMetaTags title="roundUP" />
+
       <div className="py-14 pl-14">
         <Image
           src="/assets/logo.png"

@@ -34,7 +34,7 @@ const CollectionPage: FC = () => {
   return (
     <Authentication>
       <div className="flex flex-col">
-        <PageMetaTags title="roundUP - # Collection" />
+        <PageMetaTags title={`roundUP - ${collection?.name} Posts`} />
         <Header />
 
         <div className="mb-6 mt-12 flex items-center justify-between px-32">

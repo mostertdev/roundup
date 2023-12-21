@@ -29,7 +29,7 @@ const SearchPage: FC = () => {
   return (
     <Authentication>
       <div className="flex flex-col">
-        <PageMetaTags title="roundUP - Search Results for #" />
+        <PageMetaTags title={`roundUP - Search Results for ${search}`} />
         <Header withSearch search={search} setSearch={setSearch} />
 
         <div className="mb-6 mt-12 flex items-center justify-between px-32">
