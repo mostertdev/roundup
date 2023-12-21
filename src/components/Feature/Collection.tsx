@@ -24,7 +24,7 @@ const Collection: FC<CollectionProps> = ({ collection, refetch }) => {
         <iframe
           width="1200"
           height="530"
-          src="http://localhost:3000/addons/embed/${collection.id}"
+          src="https://roundup-demo.vercel.app/addons/embed/${collection.id}"
           allowFullScreen
           style={{
             width: "100%",
@@ -58,7 +58,7 @@ const Collection: FC<CollectionProps> = ({ collection, refetch }) => {
 
       <td className="py-4">
         <Link
-          href={`http://localhost:3000/addons/live-feed/${collection.id}`}
+          href={`https://roundup-demo.vercel.app/addons/live-feed/${collection.id}`}
           target="_blank"
           className="cursor-pointer text-slate-800 hover:underline"
         >
