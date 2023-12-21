@@ -32,7 +32,7 @@ const SearchPage: FC = () => {
         <PageMetaTags title={`roundUP - Search Results for ${search}`} />
         <Header withSearch search={search} setSearch={setSearch} />
 
-        <div className="mb-6 mt-12 flex items-center justify-between px-32">
+        <div className="mb-6 mt-12 flex items-center justify-between px-8 xl:px-32">
           {isLoading && (
             <span className="text-sm font-light text-slate-800">
               Loading...
@@ -49,12 +49,12 @@ const SearchPage: FC = () => {
         {isLoading && <PostLoader />}
 
         {!isLoading && posts?.length === 0 && (
-          <div className="px-28 text-center text-lg font-medium">
+          <div className="px-8 text-center text-lg font-medium xl:px-28">
             Oh no! We couldn't find any posts matching your search.
           </div>
         )}
 
-        <div className="columns-3 gap-8 space-y-8 px-28 pb-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="columns-1 gap-8 space-y-8 px-8 pb-10 md:columns-2 lg:columns-3 xl:px-28">
           {posts?.map((post) => {
             return <Post key={post.id} post={post} />;
           })}

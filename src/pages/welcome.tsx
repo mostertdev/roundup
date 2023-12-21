@@ -13,10 +13,10 @@ const WelcomePage: FC = () => {
   }
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex flex-col items-center justify-between">
       <PageMetaTags title="roundUP" />
 
-      <div className="py-14 pl-14">
+      <div className="px-8 py-14 xl:pl-14">
         <Image
           src="/assets/logo.png"
           alt="roundUP Logo"
@@ -50,7 +50,7 @@ const WelcomePage: FC = () => {
         </div>
       </div>
 
-      <div className="flex h-screen items-center justify-center">
+      <div className="hidden h-screen items-center justify-center xl:flex">
         <Image
           src="/assets/welcome.png"
           alt="Welcome Background"

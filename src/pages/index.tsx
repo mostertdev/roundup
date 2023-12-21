@@ -27,7 +27,7 @@ const LandingPage: FC = () => {
 
             <input
               type="text"
-              className="h-10 w-96 rounded-full py-1 pl-2 text-slate-800 focus:outline-none"
+              className="h-10 w-full rounded-full py-1 pl-2 text-xs text-slate-800 focus:outline-none xl:w-[400px] xl:text-base"
               placeholder="Search for Hashtags or Mentions"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -41,7 +41,7 @@ const LandingPage: FC = () => {
             />
 
             <button
-              className="h-10 w-32 rounded-full bg-slate-800 font-semibold text-white hover:bg-slate-900 focus:outline-none"
+              className="h-10 w-32 rounded-full bg-slate-800 text-xs font-semibold text-white hover:bg-slate-900 focus:outline-none xl:text-base"
               onClick={() => {
                 if (search.length > 0) {
                   void router.push(
@@ -55,13 +55,13 @@ const LandingPage: FC = () => {
           </div>
 
           <div className="mt-8 flex items-center justify-between space-x-14">
-            <FaXTwitter className="h-36 w-36 text-white" />
-            <FaFacebook className="h-36 w-36 text-white" />
-            <FaInstagram className="h-36 w-36 text-white" />
+            <FaXTwitter className="h-12 w-12 text-white xl:h-36 xl:w-36" />
+            <FaFacebook className="h-12 w-12 text-white xl:h-36 xl:w-36" />
+            <FaInstagram className="h-12 w-12 text-white xl:h-36 xl:w-36" />
           </div>
         </div>
 
-        <div className="flex items-center justify-center space-x-1 px-12 pb-4">
+        <div className="flex flex-col items-center justify-center space-x-1 px-12 pb-4 xl:flex-row">
           <div className="flex items-center justify-center space-x-5">
             <Link
               href="https://github.com/mostertdev/roundup"

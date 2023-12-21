@@ -34,7 +34,7 @@ const EmbedPage: FC = () => {
   }, [collection?.posts?.length, displayIdx]);
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center">
+    <div className="flex h-screen w-screen items-center justify-center p-5">
       <PageMetaTags title={`roundUP - Live Feed of ${collection?.name}`} />
 
       {isLoading && <PostLoader />}

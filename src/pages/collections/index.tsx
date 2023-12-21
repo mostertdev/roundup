@@ -24,8 +24,8 @@ const CollectionsManagerPage: FC = () => {
         <PageMetaTags title="roundUP - Collections" />
         <Header />
 
-        <div className="mb-6 mt-12 flex items-center justify-between px-32">
-          <h2 className="text-xl font-medium text-slate-800">
+        <div className="mb-6 mt-12 flex items-center justify-between px-5 xl:px-32">
+          <h2 className="text-sm font-medium text-slate-800 xl:text-xl">
             {collections?.length} Collections
           </h2>
 
@@ -45,7 +45,7 @@ const CollectionsManagerPage: FC = () => {
           </div>
         )}
 
-        <div className="px-28">
+        <div className="px-5 xl:px-28">
           <div className="relative overflow-x-auto rounded-lg">
             <table className="w-full text-left text-slate-800">
               <tbody>

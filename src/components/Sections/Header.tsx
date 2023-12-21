@@ -14,17 +14,24 @@ const Header: FC<HeaderProps> = ({ withSearch, search, setSearch }) => {
   const { data } = useSession();
 
   return (
-    <div className="flex w-full items-center justify-between px-20 py-8">
+    <div className="flex w-full items-center justify-between px-8 py-8 xl:px-20">
       <Image
         src="/assets/logo.png"
         alt="roundUP Logo"
         width={270}
         height={50}
-        className="h-auto w-[270px]"
+        className="hidden h-auto w-[270px] xl:inline"
+      />
+      <Image
+        src="/assets/icon.png"
+        alt="roundUP Logo"
+        width={50}
+        height={50}
+        className="h-[50px] w-[50px] xl:hidden"
       />
 
       {withSearch && (
-        <div className="group flex items-center justify-center rounded-full bg-white px-5 py-1">
+        <div className="group hidden items-center justify-center rounded-full bg-white px-5 py-1 xl:flex">
           <MdOutlineSearch className="h-8 w-8 text-slate-200 transition-all duration-200 ease-in-out group-focus-within:text-slate-800" />
 
           <input
@@ -46,12 +53,18 @@ const Header: FC<HeaderProps> = ({ withSearch, search, setSearch }) => {
         </div>
       )}
 
-      <div className="flex items-center justify-center space-x-12">
+      <div className="flex items-center justify-center space-x-4 xl:space-x-12">
         <div className="flex items-center justify-center space-x-5">
-          <Link href="/" className="font-medium hover:underline">
+          <Link
+            href="/"
+            className="text-sm font-medium hover:underline xl:text-lg"
+          >
             Search
           </Link>
-          <Link href="/collections" className="font-medium hover:underline">
+          <Link
+            href="/collections"
+            className="text-sm font-medium hover:underline xl:text-lg"
+          >
             Collections
           </Link>
         </div>
