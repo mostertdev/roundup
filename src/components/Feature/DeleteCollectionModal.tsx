@@ -3,11 +3,12 @@ import { type FC } from "react";
 import Modal from "../Base/Modal";
 import { type ICollection } from "~/types";
 import { api } from "~/_utils/api";
+import { useRouter } from "next/router";
 
 interface DeleteCollectionModalProps {
   handleClose: () => void;
-  refetch: () => void;
-  collection: ICollection;
+  refetch?: () => void;
+  collection?: ICollection;
 }
 
 const DeleteCollectionModal: FC<DeleteCollectionModalProps> = ({
@@ -15,23 +16,29 @@ const DeleteCollectionModal: FC<DeleteCollectionModalProps> = ({
   refetch,
   collection,
 }) => {
+  const router = useRouter();
+
   const { mutate: deleteCollection, isLoading } =
     api.collections.delete.useMutation({
       onSuccess: () => {
-        refetch();
+        if (refetch) {
+          refetch();
+        } else {
+          void router.push("/collections");
+        }
         handleClose();
       },
     });
 
   const handleDelete = () => {
-    deleteCollection({ id: collection.id });
+    deleteCollection({ id: collection?.id ?? "" });
   };
 
   return (
     <Modal handleClose={handleClose} title="Delete a Collection">
       <div className="mb-8 text-center">
         <p>Are you sure you want to delete this collection?</p>
-        <strong>{collection.name}</strong>
+        <strong>{collection?.name}</strong>
       </div>
 
       <div className="flex items-center justify-center space-x-4">

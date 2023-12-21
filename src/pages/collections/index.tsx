@@ -1,5 +1,4 @@
 import { useState, type FC } from "react";
-import Link from "next/link";
 
 import Authentication from "~/components/Authentication/Autentication";
 import PageMetaTags from "~/components/MetaData/PageMetaTags";

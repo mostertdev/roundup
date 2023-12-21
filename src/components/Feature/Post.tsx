@@ -3,20 +3,25 @@ import Image from "next/image";
 
 import { type IPost } from "~/types";
 
-import { FaInstagram, FaShare, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaShare, FaTrash, FaXTwitter } from "react-icons/fa6";
 import { IoAddCircleSharp } from "react-icons/io5";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import PostShareModal from "./PostShareModal";
+import PostSaverModal from "./PostSaverModal";
+import DeletePostModal from "./DeletePostModal";
 dayjs.extend(relativeTime);
 
 interface PostProps {
   post: IPost;
+  inCollection?: boolean;
 }
 
-const Post: FC<PostProps> = ({ post }) => {
+const Post: FC<PostProps> = ({ post, inCollection }) => {
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showSaverModal, setShowSaverModal] = useState(false);
+  const [showDeletePostModal, setShowDeletePostModal] = useState(false);
 
   return (
     <div className="flex w-full break-inside-avoid-column flex-col items-stretch justify-between rounded-xl bg-white hover:shadow-[0px_0px_23px_1px_rgba(33,_31,_105,_0.13)]">
@@ -60,13 +65,39 @@ const Post: FC<PostProps> = ({ post }) => {
             className="h-6 w-6 cursor-pointer text-slate-300 transition-all duration-300 ease-in-out hover:scale-125 hover:text-slate-800"
           />
 
-          <IoAddCircleSharp className="h-6 w-6 cursor-pointer text-slate-300 transition-all duration-300 ease-in-out hover:scale-125 hover:text-slate-800" />
+          {!inCollection && (
+            <IoAddCircleSharp
+              onClick={() => setShowSaverModal(true)}
+              className="h-6 w-6 cursor-pointer text-slate-300 transition-all duration-300 ease-in-out hover:scale-125 hover:text-slate-800"
+            />
+          )}
+
+          {inCollection && (
+            <FaTrash
+              onClick={() => setShowDeletePostModal(true)}
+              className="h-6 w-6 cursor-pointer text-slate-300 transition-all duration-300 ease-in-out hover:scale-125 hover:text-slate-800"
+            />
+          )}
         </div>
       </div>
 
       {showShareModal && (
         <PostShareModal
           handleClose={() => setShowShareModal(false)}
+          post={post}
+        />
+      )}
+
+      {showSaverModal && (
+        <PostSaverModal
+          handleClose={() => setShowSaverModal(false)}
+          post={post}
+        />
+      )}
+
+      {showDeletePostModal && (
+        <DeletePostModal
+          handleClose={() => setShowDeletePostModal(false)}
           post={post}
         />
       )}

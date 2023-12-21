@@ -16,7 +16,7 @@ type FormData = z.infer<typeof validationSchema>;
 interface UpdateCollectionModalProps {
   handleClose: () => void;
   refetch: () => void;
-  collection: ICollection;
+  collection?: ICollection;
 }
 
 const UpdateCollectionModal: FC<UpdateCollectionModalProps> = ({
@@ -40,14 +40,14 @@ const UpdateCollectionModal: FC<UpdateCollectionModalProps> = ({
 
   const onSubmit: SubmitHandler<FormData> = (formData) => {
     updateCollection({
-      id: collection.id,
+      id: collection?.id ?? "",
       ...formData,
     });
   };
 
   useEffect(() => {
     reset({
-      collectionName: collection.name,
+      collectionName: collection?.name,
     });
   }, []);
 
